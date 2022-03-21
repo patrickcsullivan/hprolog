@@ -14,7 +14,7 @@ repl :: [Rule] -> IO ()
 repl _program = runInputT defaultSettings loop
   where
     loop = do
-      minput <- getInputLine "ready> "
+      minput <- getInputLine "?> "
       case minput of
         Nothing -> outputStrLn "Goodbye."
         Just input -> liftIO (process input) >> loop
