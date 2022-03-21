@@ -14,5 +14,5 @@ parserSpec =
   where
     foo = Predicate "foo" [TermLiteral $ LiteralAtom "a", TermPredicate bar, TermLiteral $ LiteralInt 1]
     bar = Predicate "bar" [TermVariable $ Variable "B", TermVariable $ Variable "_"]
-    baz = Predicate "baz" [(TermLiteral $ LiteralInt 2), (TermLiteral $ LiteralAtom "c")]
-    buzz = Predicate "buzz" [(TermVariable $ Variable "D"), (TermVariable $ Variable "D"), (TermVariable $ Variable "D")]
+    baz = Predicate "baz" [TermLiteral $ LiteralInt 2, TermLiteral $ LiteralAtom "c"]
+    buzz = Predicate "buzz" [TermVariable $ Variable "D", TermVariable $ Variable "D", TermVariable $ Variable "D"]

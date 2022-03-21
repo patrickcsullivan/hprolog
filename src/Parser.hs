@@ -13,14 +13,14 @@ import Text.Parsec.String (Parser)
 import Text.Parsec.Token (GenTokenParser (comma))
 import qualified Text.Parsec.Token as Tok
 
-parseRule :: String -> Either ParseError Rule
-parseRule = parse (rule <* Tok.whiteSpace lexer) "<parser>"
+parseProgram :: String -> Either ParseError [Rule]
+parseProgram = parse (spaces >> program) "<parser>"
 
-parseRule' :: String -> Rule
-parseRule' s =
-  case parseRule s of
-    Right r -> r
-    Left _ -> undefined
+parsePredicate :: String -> Either ParseError Predicate
+parsePredicate = parse (spaces >> predicate) "<parser>"
+
+program :: Parser [Rule]
+program = many rule <* spaces
 
 rule :: Parser Rule
 rule = do
